@@ -5,8 +5,7 @@ This is a fork of [ARGoS](https://www.argos-sim.info) with some changes to ease 
 
 Please, refer to the [main project](https://www.argos-sim.info) for more details.
 
-Requirements
-~~~~~~~~~~~~
+## Requirements
 
 If you downloaded the sources of ARGoS and want to compile its code, you need:
 
@@ -39,8 +38,7 @@ If you want to create the documentation you need:
 * To create the HTML version of this README:
 ** _asciidoc_ >= 8.6.2
 
-Debian
-^^^^^^
+### Debian
 
 On Debian, you can install all of the necessary requirements
 with the following command:
@@ -49,8 +47,7 @@ with the following command:
    qt5-default freeglut3-dev libxi-dev libxmu-dev liblua5.2-dev \
    lua5.2 doxygen graphviz graphviz-dev asciidoc
 
-OpenSuse
-^^^^^^^^
+### OpenSuse
 
 On openSUSE 13.2, you can install all of the necessary requirements
 with the following commands:
@@ -65,41 +62,35 @@ with the following commands:
    doxygen graphviz asciidoc lua-devel libqt5-qtbase freeglut-devel \
    rpmbuild
 
-Mac OSX
-^^^^^^^
+### Mac OSX
 
 On Mac, you can install all of the necessary requirements using
 http://http://brew.sh/[HomeBrew]. On the command line, type the
 following command:
 
+``` bash
  $ brew install pkg-config cmake libpng freeimage lua qt \
    docbook asciidoc graphviz doxygen
+```
 
-Compiling the code
-~~~~~~~~~~~~~~~~~~
+## Compiling the code
 
 The compilation of ARGoS is configured through CMake.
 
-Fast compilation instructions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Compiling the ARGoS simulator
-++++++++++++++++++++++++++++++
-
+``` bash
  $ cd argos3
  $ mkdir build_simulator
  $ cd build_simulator
  $ cmake ../src
  $ make
+ ```
 
-Advanced compilation configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### Advanced compilation configuration
 
 The compilation of ARGoS can be configured through a set of CMake options:
 
-[options="header"]
-|====================================================================================================================
 | Variable                 | Type      | Meaning [default value]
+| :----------------------- | :-------- | :--------------------------
 | +CMAKE_BUILD_TYPE+       | _STRING_  | Build type (+Debug+, +Release+, etc.) [Release]
 | +CMAKE_INSTALL_PREFIX+   | _STRING_  | Install prefix (+/usr+, +/usr/local+, etc.) [+/usr+]
 | +ARGOS_BUILD_FOR+        | _STRING_  | Target of compilation (+simulator+ or robot name) [+simulator+]
@@ -109,28 +100,25 @@ The compilation of ARGoS can be configured through a set of CMake options:
 | +ARGOS_USE_DOUBLE+       | _BOOLEAN_ | Use +double+ (+ON+) or +float+ (+OFF+) [+ON+]
 | +ARGOS_DOCUMENTATION+    | _BOOLEAN_ | Create API documentation [+OFF+]
 | +ARGOS_INSTALL_LDSOCONF+ | _BOOLEAN_ | Install the file +/etc/ld.so.conf/argos3.conf+ [+ON+ on Linux, +OFF+ on Mac]
-|====================================================================================================================
-
-Using the ARGoS simulator from the source tree
-----------------------------------------------
 
 IMPORTANT: You can't install ARGoS system-wide and run the source version at the same time.
            If you intend to run ARGoS from the sources, you must uninstall it from the
            system.
 
-Running the ARGoS simulator
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Running the ARGoS simulator
 
 If you don't want to install ARGoS on your system, you can run it from the sources
 tree. In the directory +build_simulator/+ you'll find a bash script called
 +setup_env.sh+. Executing this script, you configure the current environment to
 run ARGoS:
 
+``` bash
  $ cd argos3
  $ cd build_simulator
  $ . setup_env.sh     # or 'source setup_env.sh'
  $ cd core
  $ ./argos3 -q all    # this shows all the plugins recognized by ARGoS
+```
 
 If you execute ARGoS with the graphical visualization, you'll notice that
 icons and textures are missing. This is normal, as ARGoS by default looks
@@ -139,6 +127,7 @@ the default settings of the GUI.
 
 On Linux, edit the file +$HOME/.config/Iridia-ULB/ARGoS.conf+ as follows:
 
+``` txt
  [MainWindow]
  #
  # other stuff
@@ -148,13 +137,16 @@ On Linux, edit the file +$HOME/.config/Iridia-ULB/ARGoS.conf+ as follows:
  #
  # more stuff
  #
+```
 
 On Mac, write the following commands on the terminal window:
 
+``` txt
  $ defaults write be.ac.ulb.Iridia.ARGoS MainWindow.texture_dir -string "/PATH/TO/argos3/src/plugins/simulator/visualizations/qt-opengl/textures/"
  $ defaults write be.ac.ulb.Iridia.ARGoS MainWindow.icon_dir -string "/PATH/TO/argos3/src/plugins/simulator/visualizations/qt-opengl/icons/"
  $ killall -u YOURUSERNAME cfprefsd
-
+```
+    
 Be sure to substitute +/PATH/TO/+ with the correct path that contains the +argos3+
 folder, and +YOURUSERNAME+ with your username as displayed on the terminal.
 
