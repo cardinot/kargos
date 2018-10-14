@@ -107,6 +107,11 @@ if(LUA52_FOUND)
 endif(LUA52_FOUND)
 
 #
+# Look for librt, necessary on some platforms
+#
+find_package(RT)
+
+#
 # Configure PhysX library linking
 #
 if(ARGOS_BUILD_FOR_SIMULATOR)
