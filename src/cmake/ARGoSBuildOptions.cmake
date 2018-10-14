@@ -1,4 +1,20 @@
 #
+# Default build type
+#
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+message("==> build type:\n\t ${CMAKE_BUILD_TYPE}")
+
+#
+# Default install prefix
+#
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "/usr")
+endif()
+message("==> installation prefix:\n\t ${CMAKE_INSTALL_PREFIX}")
+
+#
 # What is ARGoS being built for?
 # Accepted values: "simulator" or a robot name (lowercase)
 #
@@ -73,3 +89,4 @@ endif(NOT DEFINED ARGOS_USE_DOUBLE)
 if(NOT DEFINED ARGOS_DOCUMENTATION)
   option(ARGOS_DOCUMENTATION "ON -> compile documentation, OFF -> dont'compile documentation" ON)
 endif(NOT DEFINED ARGOS_DOCUMENTATION)
+
