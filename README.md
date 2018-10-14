@@ -43,15 +43,18 @@ If you want to create the documentation you need:
 On Debian, you can install all of the necessary requirements
 with the following command:
 
+``` bash
  $ sudo apt-get install cmake libfreeimage-dev libfreeimageplus-dev \
    qt5-default freeglut3-dev libxi-dev libxmu-dev liblua5.2-dev \
    lua5.2 doxygen graphviz graphviz-dev asciidoc
+```
 
 ### OpenSuse
 
 On openSUSE 13.2, you can install all of the necessary requirements
 with the following commands:
 
+``` bash
  $ sudo zypper ar -n openSUSE-13.2-Graphics \
    http://download.opensuse.org/repositories/graphics/openSUSE_13.2/ \
    graphics
@@ -61,6 +64,7 @@ with the following commands:
  $ sudo zypper install git cmake gcc gcc-c++ freeimage-devel \
    doxygen graphviz asciidoc lua-devel libqt5-qtbase freeglut-devel \
    rpmbuild
+```
 
 ### Mac OSX
 
