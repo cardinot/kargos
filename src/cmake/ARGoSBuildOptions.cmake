@@ -87,6 +87,6 @@ endif(NOT DEFINED ARGOS_USE_DOUBLE)
 # Compile documentation
 #
 if(NOT DEFINED ARGOS_DOCUMENTATION)
-  option(ARGOS_DOCUMENTATION "ON -> compile documentation, OFF -> dont'compile documentation" ON)
+  option(ARGOS_DOCUMENTATION "ON -> compile documentation, OFF -> dont'compile documentation" OFF)
 endif(NOT DEFINED ARGOS_DOCUMENTATION)
 
